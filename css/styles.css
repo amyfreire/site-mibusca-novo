@@ -221,6 +221,8 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button,
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo__mark { color: var(--color-text); display: flex; }
 .logo__text { font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; }
+.logo__img { height: 30px; width: auto; display: block; }
+.logo__img--footer { height: 34px; }
 
 .nav__list { display: flex; gap: 32px; }
 .nav__list a { font-size: .9rem; font-weight: 600; color: var(--color-text-muted); transition: color .25s; position: relative; }
@@ -340,7 +342,7 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button,
 }
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; }
-  .hero__visual { order: -1; margin-bottom: 8px; }
+  .hero__visual { margin-top: 8px; }
   .hero-visual__bag-wrap { max-width: 280px; }
 }
 @media (max-width: 480px) {
@@ -522,6 +524,10 @@ section { padding: 110px 0; }
 .testimonials-scroll {
   display: flex; gap: 20px; overflow-x: auto; padding: 4px 24px 24px; scroll-snap-type: x mandatory;
   scrollbar-width: thin; scrollbar-color: var(--color-accent) var(--color-surface);
+  max-width: var(--container-w); margin: 0 auto;
+}
+@media (min-width: 1000px) {
+  .testimonials-scroll { justify-content: center; overflow-x: visible; }
 }
 .testimonial-card {
   scroll-snap-align: start; flex: 0 0 min(78vw, 380px);
