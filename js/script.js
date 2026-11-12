@@ -241,3 +241,53 @@
     });
   });
 })();
+
+
+/* ===== Painel de pedidos ao vivo (hero): novo pedido entra a cada ~3s (ilustrativo) ===== */
+(function () {
+  var list = document.querySelector('.live-panel__list');
+  var cnt = document.querySelector('.live-panel__count');
+  if (!list || !cnt) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var incoming = [
+    ['lp-nn', '99', 'Pizza M Portuguesa', 'Delivery · 3,0 km'],
+    ['lp-if', 'iFood', 'Poke de salmão', 'Delivery · 1,8 km'],
+    ['lp-kt', 'Keeta', 'X-Bacon + refri', 'Delivery · 0,9 km'],
+    ['lp-if', 'iFood', 'Marmita executiva', 'Delivery · 2,6 km'],
+    ['lp-nn', '99', 'Combo sushi 30 pç', 'Delivery · 4,1 km'],
+    ['lp-kt', 'Keeta', 'Esfihas (12 un.)', 'Delivery · 1,5 km']
+  ];
+  var flow = ['Preparando', 'Pronto', 'A caminho', 'Entregue'];
+  var k = 0, num = 483, count = parseInt(cnt.getAttribute('data-to'), 10) || 0;
+
+  function addOrder() {
+    var o = incoming[k++ % incoming.length];
+    list.querySelectorAll('.lp-st').forEach(function (st, i) {
+      st.classList.remove('lp-st--new');
+      st.textContent = flow[Math.min(i, flow.length - 1)];
+    });
+    var row = document.createElement('div');
+    row.className = 'lp-order lp-new';
+    row.innerHTML = '<span class="lp-pf ' + o[0] + '">' + o[1] + '</span><span class="lp-t"><b>Pedido #' + (num++) + ' · ' + o[2] +
+      '</b><small>' + o[3] + '</small></span><span class="lp-st lp-st--new">Novo</span>';
+    // altura do painel é fixa (4 pedidos): a lista desce 1 linha e o mais antigo sai cortado embaixo,
+    // sem mudar o tamanho da página
+    list.insertBefore(row, list.firstChild);
+    var shift = row.offsetHeight + 10;
+    list.classList.remove('lp-slide');
+    list.style.transform = 'translateY(' + (-shift) + 'px)';
+    void list.offsetHeight;
+    list.classList.add('lp-slide');
+    list.style.transform = 'translateY(0)';
+    var rows = list.querySelectorAll('.lp-order');
+    for (var r = 5; r < rows.length; r++) rows[r].remove();
+    count++;
+    cnt.textContent = count;
+    cnt.classList.add('bump');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { cnt.classList.remove('bump'); }); });
+  }
+
+  setTimeout(function () {
+    setInterval(function () { if (!document.hidden) addOrder(); }, 2800);
+  }, 2500);
+})();

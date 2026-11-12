@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -134,60 +134,21 @@
       </div>
 
       <div class="hero__visual hero-intro" style="--d:.4s" aria-hidden="true">
-        <div class="hero-visual__bag-wrap">
-          <svg viewBox="0 0 520 520" class="hero-visual__svg" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="heroGlow" cx="50%" cy="46%" r="55%">
-                <stop offset="0%" stop-color="#FE6401" stop-opacity=".55"/>
-                <stop offset="100%" stop-color="#FE6401" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="bagGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FF8A3D"/>
-                <stop offset="100%" stop-color="#E85800"/>
-              </linearGradient>
-              <linearGradient id="flapGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#D64F00"/>
-                <stop offset="100%" stop-color="#B94300"/>
-              </linearGradient>
-              <linearGradient id="pinGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#FF8A3D"/>
-                <stop offset="100%" stop-color="#FE6401"/>
-              </linearGradient>
-              <filter id="softBlur" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur stdDeviation="10"/>
-              </filter>
-              <clipPath id="bagClip">
-                <rect x="168" y="238" width="184" height="176" rx="22"/>
-              </clipPath>
-            </defs>
-
-            <circle class="hero-visual__glow" cx="260" cy="252" r="220" fill="url(#heroGlow)"/>
-            <ellipse cx="260" cy="424" rx="120" ry="16" fill="rgba(0,0,0,.4)" filter="url(#softBlur)"/>
-
-            <path class="hero-visual__route" d="M40,388 C112,344 88,296 112,262" fill="none" stroke="#FF8A3D" stroke-width="3" stroke-dasharray="2 15" stroke-linecap="round" opacity=".6"/>
-            <g class="hero-visual__pin" transform="translate(112,244) scale(0.85)">
-              <path d="M0,-22 C13,-22 22,-13 22,0 C22,16 0,38 0,38 C0,38 -22,16 -22,0 C-22,-13 -13,-22 0,-22 Z" fill="url(#pinGrad)"/>
-              <circle cx="0" cy="0" r="7" fill="#0C0C0C" opacity=".55"/>
-            </g>
-
-            <g class="hero-visual__steam">
-              <path d="M224,150 C218,136 232,128 226,112" fill="none" stroke="#F9F9F9" stroke-width="3" stroke-linecap="round" opacity=".4"/>
-              <path d="M256,146 C250,130 264,124 258,106" fill="none" stroke="#F9F9F9" stroke-width="3" stroke-linecap="round" opacity=".45"/>
-              <path d="M288,150 C282,136 296,128 290,112" fill="none" stroke="#F9F9F9" stroke-width="3" stroke-linecap="round" opacity=".4"/>
-            </g>
-
-            <g class="hero-visual__bag">
-              <path d="M204,150 C204,120 316,120 316,150 L316,168 L204,168 Z" fill="none" stroke="#17171A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M150,168 C150,148 168,168 260,168 C352,168 370,148 370,168 L370,204 C370,224 344,236 314,222 C284,208 236,208 206,222 C176,236 150,224 150,204 Z" fill="url(#flapGrad)"/>
-              <rect x="168" y="238" width="184" height="176" rx="22" fill="url(#bagGrad)"/>
-              <g clip-path="url(#bagClip)" opacity=".22" stroke="#F9F9F9" stroke-width="3">
-                <line x1="150" y1="270" x2="380" y2="340"/>
-                <line x1="150" y1="310" x2="380" y2="380"/>
-                <line x1="150" y1="350" x2="380" y2="420"/>
-              </g>
-              <text x="260" y="342" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="64" fill="#F9F9F9" opacity=".95">M</text>
-            </g>
-          </svg>
+        <div class="hero-visual__bag-wrap has-panel">
+          <div class="live-panel">
+            <div class="live-panel__head">
+              <div>Pedidos hoje · todas as plataformas<b class="live-panel__count" data-to="132">132</b></div>
+              <span class="live-panel__live"><i></i>ao vivo</span>
+            </div>
+            <div class="live-panel__viewport">
+            <div class="live-panel__list">
+              <div class="lp-order"><span class="lp-pf lp-if">iFood</span><span class="lp-t"><b>Pedido #482 · Hambúrguer</b><small>Chegada em 12 min</small></span><span class="lp-st">A caminho</span></div>
+              <div class="lp-order"><span class="lp-pf lp-nn">99</span><span class="lp-t"><b>Pedido #481 · Pizza G</b><small>Delivery · 2,1 km</small></span><span class="lp-st">Preparando</span></div>
+              <div class="lp-order"><span class="lp-pf lp-kt">Keeta</span><span class="lp-t"><b>Pedido #480 · Combo família</b><small>Delivery · 3,4 km</small></span><span class="lp-st">Pronto</span></div>
+              <div class="lp-order"><span class="lp-pf lp-if">iFood</span><span class="lp-t"><b>Pedido #479 · Açaí 500ml</b><small>Delivery · 1,2 km</small></span><span class="lp-st">Entregue</span></div>
+            </div>
+            </div>
+          </div>
 
           <div class="hero-chip hero-chip--status">
             <span class="hero-chip__dot"></span>
@@ -544,6 +505,6 @@
   </div>
 </footer>
 
-<script src="js/script.js" defer></script>
+<script src="js/script.js?v=2" defer></script>
 </body>
 </html>
